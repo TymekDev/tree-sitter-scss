@@ -200,9 +200,9 @@ module.exports = grammar({
 
     block_direct_child_selector: ($) => seq(">", $._selector),
 
-    block_direct_sibling_selector: ($) => seq("+", $._selector),
+    block_direct_sibling_selector: ($) => seq("~", $._selector),
 
-    block_direct_adjacent_sibling_selector: ($) => seq("~", $._selector),
+    block_direct_adjacent_sibling_selector: ($) => seq("+", $._selector),
 
     // Selectors
 

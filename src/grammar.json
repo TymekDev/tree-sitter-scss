@@ -1294,7 +1294,7 @@
       "members": [
         {
           "type": "STRING",
-          "value": "+"
+          "value": "~"
         },
         {
           "type": "SYMBOL",
@@ -1307,7 +1307,7 @@
       "members": [
         {
           "type": "STRING",
-          "value": "~"
+          "value": "+"
         },
         {
           "type": "SYMBOL",
