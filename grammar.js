@@ -195,7 +195,10 @@ module.exports = grammar({
       choice(
         $.block_direct_child_selector,
         $.block_direct_sibling_selector,
-        $.block_direct_adjacent_sibling_selector
+        $.block_direct_adjacent_sibling_selector,
+        $.child_selector_block_direct,
+        $.sibling_selector_block_direct,
+        $.adjacent_sibling_selector_block_direct
       ),
 
     block_direct_child_selector: ($) => seq(">", $._selector),
@@ -203,6 +206,12 @@ module.exports = grammar({
     block_direct_sibling_selector: ($) => seq("~", $._selector),
 
     block_direct_adjacent_sibling_selector: ($) => seq("+", $._selector),
+
+    child_selector_block_direct: ($) => seq($._selector, ">"),
+
+    sibling_selector_block_direct: ($) => seq( $._selector, "~"),
+
+    adjacent_sibling_selector_block_direct: ($) => seq( $._selector, "+"),
 
     // Selectors
 

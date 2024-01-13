@@ -153,6 +153,18 @@ a {
   + h {}
 }
 
+rs2 > {
+  a {}
+}
+
+rs3 ~ {
+  a {}
+}
+
+rs4 + {
+  a {}
+}
+
 ---
 
 (stylesheet
@@ -165,7 +177,19 @@ a {
       (rule_set (selectors (class_selector (nesting_selector) (class_name))) (block))
       (rule_set (selectors (block_direct_child_selector (tag_name))) (block))
       (rule_set (selectors (block_direct_sibling_selector (tag_name))) (block))
-      (rule_set (selectors (block_direct_adjacent_sibling_selector (tag_name))) (block)))))
+      (rule_set (selectors (block_direct_adjacent_sibling_selector (tag_name))) (block))))
+  (rule_set
+    (selectors (child_selector_block_direct (tag_name)))
+    (block
+      (rule_set (selectors (tag_name)) (block))))
+  (rule_set
+    (selectors (sibling_selector_block_direct (tag_name)))
+    (block
+      (rule_set (selectors (tag_name)) (block))))
+  (rule_set
+    (selectors (adjacent_sibling_selector_block_direct (tag_name)))
+    (block
+      (rule_set (selectors (tag_name)) (block)))))
 
 ===========================
 Sibling selectors

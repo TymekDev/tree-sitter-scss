@@ -1273,6 +1273,18 @@
         {
           "type": "SYMBOL",
           "name": "block_direct_adjacent_sibling_selector"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "child_selector_block_direct"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "sibling_selector_block_direct"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "adjacent_sibling_selector_block_direct"
         }
       ]
     },
@@ -1312,6 +1324,45 @@
         {
           "type": "SYMBOL",
           "name": "_selector"
+        }
+      ]
+    },
+    "child_selector_block_direct": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_selector"
+        },
+        {
+          "type": "STRING",
+          "value": ">"
+        }
+      ]
+    },
+    "sibling_selector_block_direct": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_selector"
+        },
+        {
+          "type": "STRING",
+          "value": "~"
+        }
+      ]
+    },
+    "adjacent_sibling_selector_block_direct": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_selector"
+        },
+        {
+          "type": "STRING",
+          "value": "+"
         }
       ]
     },
