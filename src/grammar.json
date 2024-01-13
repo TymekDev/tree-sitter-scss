@@ -1090,8 +1090,17 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "_selector"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "_selector"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "_block_direct_selector"
+            }
+          ]
         },
         {
           "type": "REPEAT",
@@ -1103,8 +1112,17 @@
                 "value": ","
               },
               {
-                "type": "SYMBOL",
-                "name": "_selector"
+                "type": "CHOICE",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "_selector"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "_block_direct_selector"
+                  }
+                ]
               }
             ]
           }
@@ -1238,6 +1256,62 @@
         {
           "type": "SYMBOL",
           "name": "at_rule"
+        }
+      ]
+    },
+    "_block_direct_selector": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "block_direct_child_selector"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "block_direct_sibling_selector"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "block_direct_adjacent_sibling_selector"
+        }
+      ]
+    },
+    "block_direct_child_selector": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": ">"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_selector"
+        }
+      ]
+    },
+    "block_direct_sibling_selector": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "+"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_selector"
+        }
+      ]
+    },
+    "block_direct_adjacent_sibling_selector": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "~"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_selector"
         }
       ]
     },

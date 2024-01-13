@@ -160,7 +160,7 @@ module.exports = grammar({
 
     rule_set: ($) => seq($.selectors, $.block),
 
-    selectors: ($) => sep1(",", $._selector),
+    selectors: ($) => sep1(",", choice($._selector, $._block_direct_selector)),
 
     block: ($) =>
       seq("{", repeat($._block_item), optional(alias($.last_declaration, $.declaration)), "}"),
@@ -190,6 +190,19 @@ module.exports = grammar({
         $.debug_statement,
         $.at_rule
       ),
+
+    _block_direct_selector: ($) =>
+      choice(
+        $.block_direct_child_selector,
+        $.block_direct_sibling_selector,
+        $.block_direct_adjacent_sibling_selector
+      ),
+
+    block_direct_child_selector: ($) => seq(">", $._selector),
+
+    block_direct_sibling_selector: ($) => seq("+", $._selector),
+
+    block_direct_adjacent_sibling_selector: ($) => seq("~", $._selector),
 
     // Selectors
 
